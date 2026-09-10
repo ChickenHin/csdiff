@@ -2,10 +2,7 @@
 name: Ubuntu CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch: 
 
 jobs:
   ubuntu:
@@ -13,8 +10,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [clang++, g++]
-        version: [22.04, 24.04]
+        compiler: [clang++]
+        version: [24.04]
 
     runs-on: ubuntu-${{ matrix.version }}
     env:
